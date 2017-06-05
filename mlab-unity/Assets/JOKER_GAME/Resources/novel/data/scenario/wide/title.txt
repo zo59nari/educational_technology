@@ -3,6 +3,9 @@
 ;タイトル画面
 [bg_new name="background" storage="kokkai"]
 [bg_show name="background"]
+[hgage]
+
+
 
 
 ;開始ボタンとロードボタンを実装
@@ -26,10 +29,4 @@
 @bg_hide name="background" time=1.5
 
 [wait time=2]
-@jump file=wide/select_mode scene=new
-
-*click_load
-[playse storage="start"]
-@anim name="button_load" scale=2.5 wait=true
-@sleepgame file="wide/libs/save" target="*loadstart"
-@jump scene=new target="*title"
+@jump file=wide/scene1 scene=new
