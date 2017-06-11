@@ -5,136 +5,122 @@
 ;メッセージ表示
 [showmessage]
 [call file=wide/system target="*system_setting_buttons"]
-[text_new name=_sp_chara_name layer=ui x="-168" y=-108.5 val="" color="DDFF00" fontsize=16 anchor="MiddleLeft"]
+[text_new name=_sp_chara_name layer=ui x="-100" y=-70 val="" color="DDFF00" fontsize=16 anchor="MiddleLeft"]
 [text_show name="_sp_chara_name"] 
 
 
 ;---------------キャラ定義
 
 @tag_default tag="chara"
-[chara_new name="kim_jong_un" storage="chara" jname="金正恩" scale=2 jcolor=FF77FF]
-[chara_new name="diplomatic_a" storage="kiri" jname="外交官" scale=2 jcolor=22FFFF]
-[chara_new name="diplomatic_b" storage="kiri" jname="外交官補佐" scale=2 jcolor=22FFFF]
+[chara_new name="kim_jong_un" storage="kim" jname="金正恩" scale=2 jcolor=FF77FF]
+[chara_new name="diplomatic_a" storage="gaikoukan" jname="外交官" scale=2 jcolor=22FFFF]
+[chara_new name="diplomatic_b" storage="hosa" jname="外交官補佐" scale=2 jcolor=22FFFF]
 
 @reset_tag_default
 
 ;金正恩の表情登録
-[chara_face name="kim_jong_un" face="angry" storage=chara_a ]
-[chara_face name="kim_jong_un" face="komaru" storage=chara_k ]
-[chara_face name="kim_jong_un" face="warau" storage=chara_w ]
+[chara_face name="kim_jong_un" face="angry" storage=kim ]
+[chara_face name="kim_jong_un" face="komaru" storage=kim_sad ]
+[chara_face name="kim_jong_un" face="warau" storage=kim_laugh ]
 
 ;外交官の表情登録
-[chara_face name="diplomatic_a" face="angry" storage=kiri_a ]
-[chara_face name="diplomatic_a" face="komaru" storage=kiri_k ]
+[chara_face name="diplomatic_a" face="angry" storage=gaikoukan_mad ]
+[chara_face name="diplomatic_a" face="komaru" storage=gaikoukan_sad ]
 
 ;外交官補佐の表情登録
-[chara_face name="diplomatic_b" face="angry" storage=kiri_a ]
-[chara_face name="diplomatic_b" face="komaru" storage=kiri_k ]
+[chara_face name="diplomatic_b" face="angry" storage=hosa_mad ]
+[chara_face name="diplomatic_b" face="komaru" storage=hosa_sad ]
 
 
 @chara_pos name="" x=0 y=-0.7
 @chara_pos name="" x=-5 y=-0.7
 
-;@show name=Jessy
 
-[playbgm wait=false time=1 storage="danger"]
+;@show name=kim_jong_un
+
+[chara_show name="kim_jong_un" ]
 
 
-[gage points="2"]
+[autosave]
 
-#導入
-２０xx年、新たに就任したアメリカ大統領？？が打ち出した新政策は北朝鮮の金正恩を怒らせた。[p]
-その新政策というのは隣国大韓民国との同盟の強化及びに日本海近郊に空母？？の複数隻配置という戦争を意識せざるを得ない、北朝鮮側を挑発する内容であった。[p]
-それに対して憤慨した金氏は自分と自身が国家元首を務める北朝鮮を侮ったアメリカに対して負けんと言わんばかりに[p]
-空母？？撤退を期日までに撤退させなければ同盟国である日本の首都東京に新型弾道ミサイル「ニッセイ」を落とすと発表。[p]
-その発表を聞いた日本は大パニック。[p]
-戦争賛成と反対の二次元にとらわれない様々な意見が飛び交う、若者にとっては経験のしたことのない、[p]
-そして高齢者には苦い過去を思い出させる異様な雰囲気が日本中に漂う中、総理大臣？？は対話によってミサイル発射を阻止することを選択。[p]
-必死の交渉と他国の協力によって交渉人を北朝鮮に送ることが許された日本の首相？？は外交官？？と外交官補佐？？の二人を選抜。性格も育ちも全く異なる二人に日本の、そして世界の命運は託された。[p]
+#問題
+北朝鮮では裕福な家庭の象徴となっている「7種の神器」と呼ばれる家電がある。以下のうち7種の神器に当てはまるのはどれか？[p]
 
-#外交官
-さてどうしたものか[p]
 
-#補佐
-どうしたものか、ってどうされたんですか？[p]
+[select_new text="携帯・スマートフォン" target=*select_a1 ]
+[select_new text="電子レンジ" target=*select_a2 ]
+[select_new text="ミシン" target=*select_a3 ]
+[select_new text="掃除機" target=*select_a4 ]
 
-#外交官
-準備はしっかりしてきたじゃないか。相手国の歴史、風土、文化はもちろんのこと、金一族のことや彼に関するパーソナルな情報までしっかり抑えた。さらには北朝鮮の隣国や同盟国のことまで。やれることはすべてやったつもりだ。でも、、[p]
 
-#補佐
-でも？[p]
+[select_show sound=click ]
+
+[s]
+
+
+*select_a1
+[gage points="1"]
 
 #外交官
-やっぱり彼の「人柄」がわからない。[p]
+このままでは話を聞いてもらえない、どうにかして感情に訴えかけなければ[p]
 
-#補佐
-彼は話が長いそうですよ。[p]
+#金正恩
+攻撃的？攻撃的で何が悪い！ [p]
+[quake]
 
-#外交官
-いや、そういうことではなく、もっと芯の部分の話だ[p]
-
-#補佐
-「人柄」ですか、やはりお互いの国の事情はもちろんですが、今回は感情的なところもかなり重要なポイントになりそうですね。[p]
 
 #外交官
-ああそうだ、そう簡単には理論的に説明できない、感情の琴線に触れるようなことができればきっと今回の交渉もうまくいくと思うんだ[p]
+（このままでは話を聞いてもらえない、どうにかして感情に訴えかけなければ）[p]
 
-#補佐
-感情の琴線ですか、、何かお互いの共通点が見つけ出せれば活路はあるのではないかと。[p]
+@jump target=a_common
 
-#外交官
-人間普遍のことでないと難しいよな、、「友達」のことなんてどうだ？[p]
+*select_a2
 
-#補佐
-「友達」ですか？うーん国家元首になるような人間ですから冷酷でしょうし裏切りの可能性もありますから友達なんて作る余裕もないと思われます。[p]
+[bg_mod storage="misile"]
 
-#外交官
-できることなら私は彼と友達になりたいんだが。でも確かにそうかもしれないな。。なら「愛」なんてどうだ？[p]
 
-#補佐
-バカにしてるんですか？外交官の恋愛話なんて誰が聞きたいんですか？ふざけないでくださいよ[p]
+#金
+もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな
 
-#外交官
-いや誰も「恋愛」だなんて言っていないぞ。「家族愛」だって立派な「愛」だろ。[p]
+[chara_hide name=kim_jong_un time=1 wait=false]
 
-#補佐
-うーん、言われてみればそうですね、きっと権力争いの中でドロドロしたものかもしれないけどうまくいけば交渉成功の鍵になるかもしれないです。[p]
 
-#外交官
-父親っていうのはどうだ？金一族のことは十分調べ上げているのだからそこが突破口になり得る。[p]
+[bg_mod storage="shoot_misile"]
+[quake]
 
-#補佐
-そうですね、家族だと殺したと噂される兄の話もありますし、父親で攻めるのが無難かもしれません。[p]
+[bg_mod storage="game_over"]
 
-#外交官
-では「父親」を中心とする家族愛を軸に話を勧めていくことにしよう。でもそれだけでは弱い。[p]
 
-#補佐
-そうですね。もう一つくらい人間普遍にものを見つけ出さないと。。[p]
+@jump target=*b_common
 
-#外交官
-食べ物なんてどうだ？[p]
 
-#補佐
-いいですね、どんな人間にも好きな食べ物嫌いな食べ物はありますし、食べ物にまつわるエピソードもたくさん正恩も持っているでしょう。[p]
+*select_a3
 
-#外交官
-食べ物と「家族愛」を絡ませた話ができたら良いな。正恩の意外な嫌いな食べ物が聞けたりして。[p]
 
-#補佐
-余裕ですね、外交官は茨城の田舎の人ですから納豆でも進めるんですか？[p]
+もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな
 
-#外交官
-田舎の人とか言ってバカにしやがって。これだから都会育ちは嫌いなんだよ。[p]
+[chara_hide name=kim_jong_un time=1 wait=false]
 
-#補佐
-そんなこと言わないでくださいよ、外交官[p]
 
-#外交官
-嘘だよ。君のことは信頼している。それはさておき、もう寝る時間だ。早く眠りについて明日に備えよう。[p]
+[bg_mod storage="shoot_misile"]
+[quake]
 
-#補佐
-そうですね[p]
+[bg_mod storage="game_over"]
+
+*select_a4
+
+
+もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな
+
+[chara_hide name=kim_jong_un time=1 wait=false]
+
+
+[bg_mod storage="shoot_misile"]
+[quake]
+
+[bg_mod storage="game_over"]
+
+
 
 @jump scene=new file=wide/title
 

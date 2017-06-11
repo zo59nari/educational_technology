@@ -1,0 +1,98 @@
+@call file=wide/libs/utils
+[bg_new name="background" storage="kokkai"]
+[bg_show name="background"]
+
+;メッセージ表示
+[showmessage]
+[call file=wide/system target="*system_setting_buttons"]
+[text_new name=_sp_chara_name layer=ui x="-168" y=-108.5 val="" color="DDFF00" fontsize=16 anchor="MiddleLeft"]
+[text_show name="_sp_chara_name"] 
+
+
+;---------------キャラ定義
+
+@tag_default tag="chara"
+[chara_new name="kim_jong_un" storage="chara" jname="金正恩" scale=2 jcolor=FF77FF]
+[chara_new name="diplomatic_a" storage="kiri" jname="外交官" scale=2 jcolor=22FFFF]
+[chara_new name="diplomatic_b" storage="kiri" jname="外交官補佐" scale=2 jcolor=22FFFF]
+
+@reset_tag_default
+
+;金正恩の表情登録
+[chara_face name="kim_jong_un" face="angry" storage=chara_a ]
+[chara_face name="kim_jong_un" face="komaru" storage=chara_k ]
+[chara_face name="kim_jong_un" face="warau" storage=chara_w ]
+
+;外交官の表情登録
+[chara_face name="diplomatic_a" face="angry" storage=kiri_a ]
+[chara_face name="diplomatic_a" face="komaru" storage=kiri_k ]
+
+;外交官補佐の表情登録
+[chara_face name="diplomatic_b" face="angry" storage=kiri_a ]
+[chara_face name="diplomatic_b" face="komaru" storage=kiri_k ]
+
+
+@chara_pos name="" x=0 y=-0.7
+@chara_pos name="" x=-5 y=-0.7
+
+;@show name=kim_jong_un
+
+[chara_show name="kim_jong_un" ]
+
+
+
+[autosave]
+
+[select_new text="a" target=*select_a1 ]
+[select_new text="a" target=*select_a2 ]
+[select_new text="a" target=*select_a3 ]
+
+
+[select_show sound=click ]
+
+[s]
+
+
+*select_a1
+[gage arg1="1"]
+
+#外交官
+このままでは話を聞いてもらえない、どうにかして感情に訴えかけなければ[p]
+
+#金正恩
+攻撃的？攻撃的で何が悪い！ [p]
+[quake]
+
+
+#外交官
+（このままでは話を聞いてもらえない、どうにかして感情に訴えかけなければ）[p]
+
+@jump target=*b_common
+
+*select_a2
+[gage arg1="2"]
+
+
+#外交官
+aaaaaaaaaaaaa!!!
+
+@jump target=*b_common
+
+
+*select_a3
+[gage arg1="3"]
+
+
+#外交官
+aaaaaaaaaaaaa!!!
+
+@jump target=*c_common
+
+
+
+@jump scene=new file=wide/title
+
+[s]
+
+
+
