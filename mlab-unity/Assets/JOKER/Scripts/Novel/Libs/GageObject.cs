@@ -44,7 +44,7 @@ public class GageObject:MonoBehaviour{
 
 
 		case "6":
-			_points = 1.5f;
+			_points = 1.0f;
 			_slider.value = _points;
 			break;
 	
