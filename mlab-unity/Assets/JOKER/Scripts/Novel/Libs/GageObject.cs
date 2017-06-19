@@ -31,22 +31,23 @@ public class GageObject:MonoBehaviour{
 			_slider.value = _points;
 			break;
 
-		case "1":
-			_points = 0.2f;
-			_slider.value = _points;
-			break;
-
-
 		case "2":
 			_points = 0.3f;
 			_slider.value = _points;
 			break;
 
 
-		case "3":
+		case "4":
 			_points = 0.4f;
 			_slider.value = _points;
 			break;
+
+
+		case "6":
+			_points = 1.5f;
+			_slider.value = _points;
+			break;
+	
 
 
 		default:

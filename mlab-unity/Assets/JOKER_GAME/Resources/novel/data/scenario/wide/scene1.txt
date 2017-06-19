@@ -32,16 +32,35 @@
 [chara_face name="diplomatic_b" face="komaru" storage=hosa_sad ]
 
 
-@chara_pos name="" x=0 y=-0.7
-@chara_pos name="" x=-5 y=-0.7
+@chara_pos name="kim_jong_un" x=0 y=-0.5
+@chara_pos name="diplomatic_a" x=4.5 y=-3
+@chara_pos name="diplomatic_b" x=-6 y=-2
+
 
 
 ;@show name=kim_jong_un
 
-[chara_show name="kim_jong_un" ]
+[playbgm wait=false time=1 storage="danger"]
+
 
 
 [autosave]
+
+
+[chara_show name="diplomatic_a"]
+[chara_show name="diplomatic_b"]
+
+
+[chara_hide name=diplomatic_a time=1 wait=false]
+[chara_hide name=diplomatic_b time=1 wait=false]
+
+#ナレーション
+
+会談当日。。[p]
+
+[bg_mod storage="chousen_kokki"]
+[chara_show name="kim_jong_un"]
+
 
 #問題
 北朝鮮では裕福な家庭の象徴となっている「7種の神器」と呼ばれる家電がある。以下のうち7種の神器に当てはまるのはどれか？[p]
@@ -59,7 +78,56 @@
 
 
 *select_a1
-[gage points="1"]
+
+[gage points="6"]
+
+[stopbgm]
+[playbgm wait=false time=1 storage="missile"]
+[bg_mod storage="misile"]
+
+
+#金
+もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
+
+[chara_hide name=kim_jong_un time=1 wait=false]
+
+
+[bg_mod storage="shoot_misile"]
+[quake]
+
+[bg_mod storage="game_over"]
+
+[s]
+
+@jump target=a_common
+
+*select_a2
+[stopbgm]
+[playbgm wait=false time=1 storage="missile"]
+[bg_mod storage="misile"]
+
+
+#金
+もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
+
+[chara_hide name=kim_jong_un time=1 wait=false]
+
+
+[bg_mod storage="shoot_misile"]
+[quake]
+
+[bg_mod storage="game_over"]
+
+[s]
+
+
+@jump target=*b_common
+
+
+*select_a3
+
+[gage points="0"]
+
 
 #外交官
 このままでは話を聞いてもらえない、どうにかして感情に訴えかけなければ[p]
@@ -74,43 +142,11 @@
 
 @jump target=a_common
 
-*select_a2
-
-[bg_mod storage="misile"]
-
-
-#金
-もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな
-
-[chara_hide name=kim_jong_un time=1 wait=false]
-
-
-[bg_mod storage="shoot_misile"]
-[quake]
-
-[bg_mod storage="game_over"]
-
-
-@jump target=*b_common
-
-
-*select_a3
-
-
-もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな
-
-[chara_hide name=kim_jong_un time=1 wait=false]
-
-
-[bg_mod storage="shoot_misile"]
-[quake]
-
-[bg_mod storage="game_over"]
 
 *select_a4
 
 
-もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな
+もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
 
 [chara_hide name=kim_jong_un time=1 wait=false]
 
@@ -120,6 +156,392 @@
 
 [bg_mod storage="game_over"]
 
+[s]
+
+
+*a_common
+
+[chara_show name="kim_jong_un" ]
+
+
+[autosave]
+
+#問題
+北朝鮮は日本人や韓国人をターゲットに拉致を繰り返してきた。特定失踪者問題調査会は、平成二十六年6月2日現在拉致された可能性が濃厚・疑惑があるとした日本人の人数は271名にのぼる。[p]
+しかし、どの国も拉致被害者の正確な人数は未だ把握することができていないのはなぜか？（当てはまらないものを選べ）[p]
+
+
+[select_new text="亡命者と拉致被害者の区別がつかないから" target=*select_b1 ]
+[select_new text="早期の段階で死んだと発表されてしまうことが多いから。" target=*select_b2 ]
+[select_new text="拉致被害を訴える国が北朝鮮の核開発に反発的な態度を取っているため、北朝鮮は報復として拉致を認めないから" target=*select_b3 ]
+[select_new text="拉致後の被害者の行動を追跡することが困難だから" target=*select_b4 ]
+
+
+[select_show sound=click ]
+
+[s]
+
+
+*select_b1
+[stopbgm]
+[playbgm wait=false time=1 storage="missile"]
+[bg_mod storage="misile"]
+#金
+もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
+
+[chara_hide name=kim_jong_un time=1 wait=false]
+
+
+[bg_mod storage="shoot_misile"]
+[quake]
+
+[bg_mod storage="game_over"]
+
+[s]
+
+
+*select_b2
+[stopbgm]
+[playbgm wait=false time=1 storage="missile"]
+[bg_mod storage="misile"]
+[bg_mod storage="misile"]
+
+#金
+もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
+
+[chara_hide name=kim_jong_un time=1 wait=false]
+
+
+[bg_mod storage="shoot_misile"]
+[quake]
+
+[bg_mod storage="game_over"]
+
+[s]
+
+*select_b3
+
+[stopbgm]
+[playbgm wait=false time=1 storage="missile"]
+[bg_mod storage="misile"]
+#金
+もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
+
+[chara_hide name=kim_jong_un time=1 wait=false]
+
+
+[bg_mod storage="shoot_misile"]
+[quake]
+
+[bg_mod storage="game_over"]
+
+[s]
+
+*select_b4
+[gage points="2"]
+
+#外交官
+自分の国に置き換えて考えてみてください！自分が作り上げてきた国家が目の前で壊されていくんですよ？悲しい気持ちにはなりませんか？[p]
+
+#金
+
+国家を守るには攻撃するしかない、？？大統領だってそこは同じ考えだろう。[p]
+
+@jump target=c_common
+
+*c_common
+
+[chara_show name="kim_jong_un" ]
+
+
+[autosave]
+
+#問題
+近年北朝鮮を脱出する人（＝脱北者）が増えており、2016年には韓国入りした脱北者は暫定集計1417人（前年比約11%増）にのぼった。では、脱北者はその後どういった生活を送っているのか？[p]
+
+
+[select_new text="他国に北朝鮮の内部の情報を伝える重要な人物として国家からの支援を受けることができる。" target=*select_c1 ]
+[select_new text="脱北先での生活になじむことができず、まともな仕事に就けなかったり犯罪を犯してしまう人が多い。" target=*select_c2 ]
+[select_new text="北朝鮮では核兵器に関する科学的な教育を受けている人が多く、脱北先でも核兵器の開発や迎撃システムの開発に従事する人が多い。" target=*select_c3 ]
+[select_new text="北朝鮮の工作員が主な脱北先にはおり、脱北者だとわかると大体の人が工作員によって秘密裏に殺害されてしまう。" target=*select_c4 ]
+
+
+[select_show sound=click ]
+
+[s]
+
+
+*select_c1
+[gage points="4"]
+
+
+#外交官
+では自分の国の国民が殺される、そうやって考えたら苦しくはありませんか？[p]
+
+#金
+殺される？そんなことはない、我が国が世界で一番強いのだから。[p]
+
+#外交官
+（やっぱりそうだ、周りが見れていない。補佐が言った通り。）[p]
+
+
+@jump target=d_common
+
+
+*select_c2
+
+[stopbgm]
+[playbgm wait=false time=1 storage="missile"]
+[bg_mod storage="misile"]
+#金
+もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
+
+[chara_hide name=kim_jong_un time=1 wait=false]
+
+
+[bg_mod storage="shoot_misile"]
+[quake]
+
+[bg_mod storage="game_over"]
+
+[s]
+
+*select_c3
+
+[stopbgm]
+[playbgm wait=false time=1 storage="missile"]
+[bg_mod storage="misile"]
+#金
+もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
+
+[chara_hide name=kim_jong_un time=1 wait=false]
+
+
+[bg_mod storage="shoot_misile"]
+[quake]
+
+[bg_mod storage="game_over"]
+
+[s]
+
+*select_c4
+[stopbgm]
+[playbgm wait=false time=1 storage="missile"]
+[bg_mod storage="misile"]
+
+#外交官
+もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
+
+[chara_hide name=kim_jong_un time=1 wait=false]
+
+
+[bg_mod storage="shoot_misile"]
+[quake]
+
+[bg_mod storage="game_over"]
+
+[s]
+
+*d_common
+
+[chara_show name="kim_jong_un" ]
+
+
+[autosave]
+
+#問題
+現在では北から南への脱北者が増えているが、昔は南から北への越北者も多数いた。では越北者が増え始めたのはいつ頃からか？[p]
+
+
+[select_new text="1945年ごろ（太平洋戦争にソ連参戦)" target=*select_d1 ]
+[select_new text="1948年ごろ（大韓民国、朝鮮民主主義人民共和国建国）" target=*select_d2 ]
+[select_new text="1948年ごろ（大韓民国、朝鮮民主主義人民共和国建国）" target=*select_d3 ]
+[select_new text="1948年ごろ（大韓民国、朝鮮民主主義人民共和国建国）" target=*select_d4 ]
+
+
+[select_show sound=click ]
+
+[s]
+
+
+*select_d1
+[stopbgm]
+[playbgm wait=false time=1 storage="missile"]
+[bg_mod storage="misile"]
+
+#外交官
+
+もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
+
+[chara_hide name=kim_jong_un time=1 wait=false]
+
+
+[bg_mod storage="shoot_misile"]
+[quake]
+
+[bg_mod storage="game_over"]
+
+[s]
+
+
+*select_d2
+
+[stopbgm]
+[playbgm wait=false time=1 storage="missile"]
+[bg_mod storage="misile"]
+#金
+もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
+
+[chara_hide name=kim_jong_un time=1 wait=false]
+
+
+[bg_mod storage="shoot_misile"]
+[quake]
+
+[bg_mod storage="game_over"]
+
+[s]
+
+*select_d3
+
+[stopbgm]
+[playbgm wait=false time=1 storage="missile"]
+[bg_mod storage="misile"]
+#金
+もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
+
+[chara_hide name=kim_jong_un time=1 wait=false]
+
+
+[bg_mod storage="shoot_misile"]
+[quake]
+
+[bg_mod storage="game_over"]
+
+[s]
+
+*select_d4
+[gage points="6"]
+
+
+#外交官
+ではもっと現実的な話をしましょう。自分の友達が殺されたらどう思いますか？[p]
+
+#金
+私は生まれながらにして国家元首になることが決められていた男だ、友達など作っている暇などない。[p]
+
+#外交官
+（友達がいないだと！？ではもっと感情的にうったえかけなければ）[p]
+
+
+
+@jump target=e_common
+
+*e_common
+
+[chara_show name="kim_jong_un" ]
+
+
+[autosave]
+
+#問題
+北朝鮮はこれまで何度も核実験を繰り返している。国際的に批判が強まる中で北朝鮮は、どのように資金を集めて核実験を行っているのか？[p]
+
+
+[select_new text="対中国の対外貿易で、石炭や鉄鉱石を得ることで外貨を得ている。" target=*select_e1 ]
+[select_new text="冷戦時の資本主義国に対し賠償金を請求し、核開発に当てている。" target=*select_e2 ]
+[select_new text="冷戦時の資本主義国に対し賠償金を請求し、核開発に当てている。" target=*select_e3 ]
+[select_new text="自動車や鉄道などミサイルの材料、燃料となりうるものを国策として市民から徴収して核開発に当てている。" target=*select_e4 ]
+
+
+[select_show sound=click ]
+
+[s]
+
+
+*select_e1
+
+#外交官
+ご決断を！（一か八かにかけるしかない。。）
+
+
+@jump target=f_common
+
+*f_common
+
+
+*select_e2
+
+[stopbgm]
+[playbgm wait=false time=1 storage="missile"]
+[bg_mod storage="misile"]
+#金
+もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
+
+[chara_hide name=kim_jong_un time=1 wait=false]
+
+
+[bg_mod storage="shoot_misile"]
+[quake]
+
+[bg_mod storage="game_over"]
+
+[s]
+
+*select_e3
+
+[stopbgm]
+[playbgm wait=false time=1 storage="missile"]
+[bg_mod storage="misile"]
+#金
+もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
+
+[chara_hide name=kim_jong_un time=1 wait=false]
+
+
+[bg_mod storage="shoot_misile"]
+[quake]
+
+[bg_mod storage="game_over"]
+
+[s]
+
+*select_e4
+
+[stopbgm]
+[playbgm wait=false time=1 storage="missile"]
+[bg_mod storage="misile"]
+#金
+
+もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
+
+[chara_hide name=kim_jong_un time=1 wait=false]
+
+
+[bg_mod storage="shoot_misile"]
+[quake]
+
+[bg_mod storage="game_over"]
+
+[s]
+
+
+
+
+@jump target=e_common
+
+*f_common
+
+[chara_hide name=kim_jong_un time=1 wait=false]
+
+
+#金君の言っていることに心が動かされた。自分のことが間違っているとは思わないがこれからお互いの国同士が少しでも仲良くやっていくことを切に願うよ。もちろんミサイル発射も中止だ。[p]
+
+[bg_mod storage="game_clear"]
+
+
+
+[s]
 
 
 @jump scene=new file=wide/title
