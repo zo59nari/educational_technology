@@ -77,7 +77,9 @@ scale=大きさをアニメーションできます。拡大率を指定しま�
 			string name = this.param ["name"];
 			string tag = this.param ["tag"];
 
+			//文字列をfloatに変換
 			float time = float.Parse(this.param ["time"]);
+
 
 			List<string> images = new List<string> ();
 			if (tag != "") {

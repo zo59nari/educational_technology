@@ -12,9 +12,9 @@
 ;---------------キャラ定義
 
 @tag_default tag="chara"
-[chara_new name="kim_jong_un" storage="kim" jname="金正恩" scale=2 jcolor=FF77FF]
-[chara_new name="diplomatic_a" storage="gaikoukan" jname="外交官" scale=2 jcolor=22FFFF]
-[chara_new name="diplomatic_b" storage="hosa" jname="外交官補佐" scale=2 jcolor=22FFFF]
+[chara_new name="kim_jong_un" storage="kim" jname="金正恩" scale=1.2 jcolor=FF77FF]
+[chara_new name="diplomatic_a" storage="gaikoukan" jname="外交官" scale=1.2 jcolor=22FFFF]
+[chara_new name="diplomatic_b" storage="hosa" jname="外交官補佐" scale=1.2 jcolor=22FFFF]
 
 @reset_tag_default
 
@@ -24,15 +24,19 @@
 [chara_face name="kim_jong_un" face="warau" storage=kim_laugh ]
 
 ;外交官の表情登録
-[chara_face name="diplomatic_a" face="angry" storage=gaikoukan_mad ]
-[chara_face name="diplomatic_a" face="komaru" storage=gaikoukan_sad ]
+[chara_face name="diplomatic_a" face="default" storage=gaikoukan]
+[chara_face name="diplomatic_a" face="komaru" storage=gaikoukan_komaru ]
+[chara_face name="diplomatic_a" face="mad" storage=gaikoukan_mad ]
+[chara_face name="diplomatic_a" face="laugh" storage=gaikoukan_laugh ]
 
 ;外交官補佐の表情登録
-[chara_face name="diplomatic_b" face="angry" storage=hosa_mad ]
-[chara_face name="diplomatic_b" face="komaru" storage=hosa_sad ]
+[chara_face name="diplomatic_b" face="default" storage=hosa ]
+[chara_face name="diplomatic_b" face="komaru" storage=hosa_komaru ]
+[chara_face name="diplomatic_b" face="mad" storage=hosa_mad ]
+[chara_face name="diplomatic_b" face="laugh" storage=hosa_laugh ]
 
 
-@chara_pos name="kim_jong_un" x=0 y=-0.5
+@chara_pos name="kim_jong_un" x=1 y=-0.5
 @chara_pos name="diplomatic_a" x=4.5 y=-3
 @chara_pos name="diplomatic_b" x=-6 y=-2
 
@@ -40,11 +44,12 @@
 
 ;@show name=kim_jong_un
 
-[playbgm wait=false time=1 storage="danger"]
-
 
 
 [autosave]
+
+[playbgm wait=false time=1 storage="danger"]
+
 
 
 [chara_show name="diplomatic_a"]
@@ -54,9 +59,160 @@
 [chara_hide name=diplomatic_a time=1 wait=false]
 [chara_hide name=diplomatic_b time=1 wait=false]
 
+;---------------序章
+
+
+#ナレーション
+２０xx年、新たに就任したアメリカ大統領？？が打ち出した新政策は北朝鮮の金正恩を怒らせた。[p]
+
+#ナレーション
+その新制作というのは隣国大韓民国との同盟の強化及びに日本海近郊に空母？？の複数隻配置という戦争を意識せざるを得ない、北朝鮮側を挑発する内容であった。[p]
+
+#ナレーション
+それに対して金氏は自分と地震が国家元首を務める北朝鮮を侮ったアメリカに対して憤。[p]
+
+#ナレーション
+負けんと言わんばかりに空母？？撤退を期日までに撤退させなければ同盟国である日本の首都東京に新型弾道ミサイル「ニッセイ」を落とすと発表。[p]
+
+#ナレーション
+その発表を聞いた日本は大パニックし、戦争賛成と反対の二次元にとらわれない様々な意見が飛び交う。[p]
+
+#ナレーション
+若者にとっては経験のしたことのない、そして高齢者には苦い過去を思い出させる異様な雰囲気が日本中に漂う中、総理大臣？？は対話によってミサイル発射を阻止することを選択。[p]
+
+#ナレーション
+必死の交渉と他国の協力によって交渉人を北朝鮮に送ることが許された日本の首相？？は外交官？？と外交官補佐？？の二人を選抜。[p]
+
+#ナレーション
+性格も育ちも全く異なる二人に日本の、そして世界の命運は託された。[p]
+
+#外交官
+[chara_mod name="diplomatic_a" face="komaru"]
+さてどうしたものか[p]
+
+#補佐
+[chara_mod name="diplomatic_b"]
+どうしたものか、ってどうされたんですか？[p]
+
+#外交官
+[chara_mod name="diplomatic_a"]
+[chara_mod name="diplomatic_b" face="laugh"]
+準備はしっかりしてきたじゃないか。相手国の歴史、風土、文化はもちろんのこと、金一族のことや彼に関するパーソナルな情報までしっかり抑えた。
+
+#外交官
+[chara_mod name="diplomatic_a" face="komaru"]
+さらには北朝鮮の隣国や同盟国のことまで。やれることはすべてやったつもりだ。でも、、[p]
+
+#補佐
+[chara_mod name="diplomatic_b"]
+でも？[p]
+
+#外交官
+[chara_mod name="diplomatic_a" face="komaru"]
+やっぱり彼の「人柄」がわからない。[p]
+
+#補佐
+[chara_mod name="diplomatic_b" face="laugh"]
+彼は話が長いそうですよ。[p]
+
+#外交官
+[chara_mod name="diplomatic_a" face="mad"]
+いや、そういうことではなく、もっと芯の部分の話だ[p]
+
+#補佐
+[chara_mod name="diplomatic_b"]
+「人柄」ですか、やはりお互いの国の事情はもちろんですが、今回は感情的なところもかなり重要なポイントになりそうですね。[p]
+
+#外交官
+[chara_mod name="diplomatic_a" face="komaru"]
+ああそうだ、そう簡単には理論的に説明できない、感情の琴線に触れるようなことができればきっと今回の交渉もうまくいくと思うんだ[p]
+
+#補佐
+[chara_mod name="diplomatic_b" face="laugh"]
+感情の琴線ですか、、何かお互いの共通点が見つけ出せれば活路はあるのではないかと。[p]
+
+#外交官
+[chara_mod name="diplomatic_a" face="komaru"]
+人間普遍のことでないと難しいよな、、「友達」のことなんてどうだ？[p]
+
+#補佐
+[chara_mod name="diplomatic_b" face="komaru"]
+「友達」ですか？うーん国家元首になるような人間ですから冷酷でしょうし裏切りの可能性もありますから友達なんて作る余裕もないと思われます。[p]
+
+#外交官
+[chara_mod name="diplomatic_a" face="default"]
+できることなら私は彼と友達になりたいんだが。でも確かにそうかもしれないな。。なら「愛」なんてどうだ？[p]
+
+#補佐
+[chara_mod name="diplomatic_b" face="laugh"]
+バカにしてるんですか？外交官の恋愛話なんて誰が聞きたいんですか？ふざけないでくださいよ[p]
+
+#外交官
+[chara_mod name="diplomatic_a" face="laugh"]
+いや誰も「恋愛」だなんて言っていないぞ。「家族愛」だって立派な「愛」だろ。[p]
+
+#補佐
+[chara_mod name="diplomatic_b" face="default"]
+うーん、言われてみればそうですね、きっと権力争いの中でドロドロしたものかもしれないけどうまくいけば交渉成功の鍵になるかもしれないです。[p]
+
+#外交官
+[chara_mod name="diplomatic_a" face="laugh"]
+父親っていうのはどうだ？金一族のことは十分調べ上げているのだからそこが突破口になり得る。[p]
+
+#補佐
+[chara_mod name="diplomatic_b" face="laugh"]
+そうですね、家族だと殺したと噂される兄の話もありますし、父親で攻めるのが無難かもしれません。[p]
+
+#外交官
+[chara_mod name="diplomatic_a" face="komaru"]
+では「父親」を中心とする家族愛を軸に話を勧めていくことにしよう。でもそれだけでは弱い。[p]
+
+#補佐
+[chara_mod name="diplomatic_b" face="komaru"]
+そうですね。もう一つくらい人間普遍にものを見つけ出さないと。。[p]
+
+#外交官
+[chara_mod name="diplomatic_a" face="laugh"]
+食べ物なんてどうだ？[p]
+
+#補佐
+[chara_mod name="diplomatic_b" face="default"]
+いいですね、どんな人間にも好きな食べ物嫌いな食べ物はありますし、食べ物にまつわるエピソードもたくさん正恩も持っているでしょう。[p]
+
+#外交官
+[chara_mod name="diplomatic_a" face="laugh"]
+食べ物と「家族愛」を絡ませた話ができたら良いな。正恩の意外な嫌いな食べ物が聞けたりして。[p]
+
+#補佐
+[chara_mod name="diplomatic_b" face="laugh"]
+余裕ですね、外交官は茨城の田舎の人ですから納豆でも進めるんですか？[p]
+
+#外交官
+[chara_mod name="diplomatic_a" face="laugh"]
+田舎の人とか言ってバカにしやがって。これだから都会育ちは嫌いなんだよ。[p]
+
+#補佐
+[chara_mod name="diplomatic_b" face="laugh"]
+そんなこと言わないでくださいよ、外交官[p]
+
+#外交官
+[chara_mod name="diplomatic_a" face="default"]
+嘘だよ。君のことは信頼している。それはさておき、もう寝る時間だ。早く眠りについて明日に備えよう。[p]
+
+#補佐
+[chara_mod name="diplomatic_b" face="laugh"]
+そうですね[p]
+
+
+;---------------クイズ
+;--------第1問
+
+
 #ナレーション
 
 会談当日。。[p]
+
+
 
 [bg_mod storage="chousen_kokki"]
 [chara_show name="kim_jong_un"]
@@ -78,85 +234,59 @@
 
 
 *select_a1
-
-[gage points="6"]
-
-[stopbgm]
-[playbgm wait=false time=1 storage="missile"]
-[bg_mod storage="misile"]
-
-
+[gage points="wrong"]
 #金
-もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
+やはり難しい、日本には犠牲になってもらおう。。[p]
 
-[chara_hide name=kim_jong_un time=1 wait=false]
+#外交官
+待ってください、、、！[p]
 
-
-[bg_mod storage="shoot_misile"]
-[quake]
-
-[bg_mod storage="game_over"]
-
-[s]
 
 @jump target=a_common
 
 *select_a2
-[stopbgm]
-[playbgm wait=false time=1 storage="missile"]
-[bg_mod storage="misile"]
-
+[gage points="wrong"]
 
 #金
-もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
+やはり難しい、日本には犠牲になってもらおう。。[p]
 
-[chara_hide name=kim_jong_un time=1 wait=false]
-
-
-[bg_mod storage="shoot_misile"]
-[quake]
-
-[bg_mod storage="game_over"]
-
-[s]
+#外交官
+待ってください、、、！[p]
 
 
-@jump target=*b_common
+@jump target=a_common
 
 
 *select_a3
+[gage points="wrong"]
 
-[gage points="0"]
-
-
-#外交官
-このままでは話を聞いてもらえない、どうにかして感情に訴えかけなければ[p]
-
-#金正恩
-攻撃的？攻撃的で何が悪い！ [p]
-[quake]
-
+#金
+やはり難しい、日本には犠牲になってもらおう。。[p]
 
 #外交官
-（このままでは話を聞いてもらえない、どうにかして感情に訴えかけなければ）[p]
+待ってください、、、！[p]
+
 
 @jump target=a_common
 
 
 *select_a4
+[gage points="right"]
+
+#金
+やはり難しい、日本には犠牲になってもらおう。。[p]
+
+#外交官
+待ってください、、、！[p]
+
+@jump target=a_common
 
 
-もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
-
-[chara_hide name=kim_jong_un time=1 wait=false]
 
 
-[bg_mod storage="shoot_misile"]
-[quake]
+;--------第2問
 
-[bg_mod storage="game_over"]
 
-[s]
 
 
 *a_common
@@ -165,6 +295,7 @@
 
 
 [autosave]
+
 
 #問題
 北朝鮮は日本人や韓国人をターゲットに拉致を繰り返してきた。特定失踪者問題調査会は、平成二十六年6月2日現在拉致された可能性が濃厚・疑惑があるとした日本人の人数は271名にのぼる。[p]
@@ -179,75 +310,74 @@
 
 [select_show sound=click ]
 
-[s]
 
 
 *select_b1
-[stopbgm]
-[playbgm wait=false time=1 storage="missile"]
-[bg_mod storage="misile"]
+[gage points="wrong"]
+
+#外交官
+人がたくさん死ぬって怖くはないんですか？
+
 #金
-もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
+死ぬのは日本人だ。敵を殺すのに怖いことなどあるものか。[p]
 
-[chara_hide name=kim_jong_un time=1 wait=false]
+#外交官
+（このままでは話を聞いてもらえない。感情に訴えかけないと。。）
 
 
-[bg_mod storage="shoot_misile"]
-[quake]
 
-[bg_mod storage="game_over"]
-
-[s]
+@jump target=c_common
 
 
 *select_b2
-[stopbgm]
-[playbgm wait=false time=1 storage="missile"]
-[bg_mod storage="misile"]
-[bg_mod storage="misile"]
-
-#金
-もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
-
-[chara_hide name=kim_jong_un time=1 wait=false]
-
-
-[bg_mod storage="shoot_misile"]
-[quake]
-
-[bg_mod storage="game_over"]
-
-[s]
-
-*select_b3
-
-[stopbgm]
-[playbgm wait=false time=1 storage="missile"]
-[bg_mod storage="misile"]
-#金
-もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
-
-[chara_hide name=kim_jong_un time=1 wait=false]
-
-
-[bg_mod storage="shoot_misile"]
-[quake]
-
-[bg_mod storage="game_over"]
-
-[s]
-
-*select_b4
-[gage points="2"]
+[gage points="wrong"]
 
 #外交官
-自分の国に置き換えて考えてみてください！自分が作り上げてきた国家が目の前で壊されていくんですよ？悲しい気持ちにはなりませんか？[p]
+人がたくさん死ぬって怖くはないんですか？
 
 #金
+死ぬのは日本人だ。敵を殺すのに怖いことなどあるものか。[p]
 
-国家を守るには攻撃するしかない、？？大統領だってそこは同じ考えだろう。[p]
+#外交官
+（このままでは話を聞いてもらえない。感情に訴えかけないと。。）
+
+
 
 @jump target=c_common
+
+*select_b3
+[gage points="wrong"]
+
+#外交官
+人がたくさん死ぬって怖くはないんですか？
+
+#金
+死ぬのは日本人だ。敵を殺すのに怖いことなどあるものか。[p]
+
+#外交官
+（このままでは話を聞いてもらえない。感情に訴えかけないと。。）
+
+
+
+@jump target=c_common
+
+*select_b4
+[gage points="right"]
+
+#外交官
+人がたくさん死ぬって怖くはないんですか？
+
+#金
+死ぬのは日本人だ。敵を殺すのに怖いことなどあるものか。[p]
+
+#外交官
+（このままでは話を聞いてもらえない。感情に訴えかけないと。。）
+
+@jump target=c_common
+
+
+;---------------第3問
+
 
 *c_common
 
@@ -255,6 +385,8 @@
 
 
 [autosave]
+
+
 
 #問題
 近年北朝鮮を脱出する人（＝脱北者）が増えており、2016年には韓国入りした脱北者は暫定集計1417人（前年比約11%増）にのぼった。では、脱北者はその後どういった生活を送っているのか？[p]
@@ -268,21 +400,22 @@
 
 [select_show sound=click ]
 
-[s]
+
 
 
 *select_c1
-[gage points="4"]
+[gage points="wrong"]
 
 
 #外交官
-では自分の国の国民が殺される、そうやって考えたら苦しくはありませんか？[p]
+愛する家族が戦争で殺されたら悲しくありませんか？[p]
 
 #金
-殺される？そんなことはない、我が国が世界で一番強いのだから。[p]
+私は兄を殺した人間だ、そのくらい君だって知っているだろう？[p]
 
 #外交官
-（やっぱりそうだ、周りが見れていない。補佐が言った通り。）[p]
+（家族愛ではだめだ、、あの手しかないか、、）[p]
+
 
 
 @jump target=d_common
@@ -290,57 +423,55 @@
 
 *select_c2
 
-[stopbgm]
-[playbgm wait=false time=1 storage="missile"]
-[bg_mod storage="misile"]
+
+#外交官
+愛する家族が戦争で殺されたら悲しくありませんか？[p]
+
 #金
-もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
+私は兄を殺した人間だ、そのくらい君だって知っているだろう？[p]
 
-[chara_hide name=kim_jong_un time=1 wait=false]
+#外交官
+（家族愛ではだめだ、、あの手しかないか、、）[p]
 
 
-[bg_mod storage="shoot_misile"]
-[quake]
 
-[bg_mod storage="game_over"]
-
-[s]
+@jump target=d_common
 
 *select_c3
 
-[stopbgm]
-[playbgm wait=false time=1 storage="missile"]
-[bg_mod storage="misile"]
-#金
-もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
-
-[chara_hide name=kim_jong_un time=1 wait=false]
-
-
-[bg_mod storage="shoot_misile"]
-[quake]
-
-[bg_mod storage="game_over"]
-
-[s]
-
-*select_c4
-[stopbgm]
-[playbgm wait=false time=1 storage="missile"]
-[bg_mod storage="misile"]
 
 #外交官
-もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
+愛する家族が戦争で殺されたら悲しくありませんか？[p]
 
-[chara_hide name=kim_jong_un time=1 wait=false]
+#金
+私は兄を殺した人間だ、そのくらい君だって知っているだろう？[p]
+
+#外交官
+（家族愛ではだめだ、、あの手しかないか、、）[p]
 
 
-[bg_mod storage="shoot_misile"]
-[quake]
 
-[bg_mod storage="game_over"]
+@jump target=d_common
 
-[s]
+*select_c4
+
+
+#外交官
+愛する家族が戦争で殺されたら悲しくありませんか？[p]
+
+#金
+私は兄を殺した人間だ、そのくらい君だって知っているだろう？[p]
+
+#外交官
+（家族愛ではだめだ、、あの手しかないか、、）[p]
+
+
+
+@jump target=d_common
+
+
+;--------第4問
+
 
 *d_common
 
@@ -348,6 +479,8 @@
 
 
 [autosave]
+
+
 
 #問題
 現在では北から南への脱北者が増えているが、昔は南から北への越北者も多数いた。では越北者が増え始めたのはいつ頃からか？[p]
@@ -361,81 +494,73 @@
 
 [select_show sound=click ]
 
-[s]
+
 
 
 *select_d1
-[stopbgm]
-[playbgm wait=false time=1 storage="missile"]
-[bg_mod storage="misile"]
-
-#外交官
-
-もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
-
-[chara_hide name=kim_jong_un time=1 wait=false]
-
-
-[bg_mod storage="shoot_misile"]
-[quake]
-
-[bg_mod storage="game_over"]
-
-[s]
-
-
-*select_d2
-
-[stopbgm]
-[playbgm wait=false time=1 storage="missile"]
-[bg_mod storage="misile"]
-#金
-もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
-
-[chara_hide name=kim_jong_un time=1 wait=false]
-
-
-[bg_mod storage="shoot_misile"]
-[quake]
-
-[bg_mod storage="game_over"]
-
-[s]
-
-*select_d3
-
-[stopbgm]
-[playbgm wait=false time=1 storage="missile"]
-[bg_mod storage="misile"]
-#金
-もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
-
-[chara_hide name=kim_jong_un time=1 wait=false]
-
-
-[bg_mod storage="shoot_misile"]
-[quake]
-
-[bg_mod storage="game_over"]
-
-[s]
-
-*select_d4
-[gage points="6"]
 
 
 #外交官
-ではもっと現実的な話をしましょう。自分の友達が殺されたらどう思いますか？[p]
+では、愛する父親が戦争に行って殺されたとしたらあなたはなんとも思わないんですか？[p]
 
 #金
-私は生まれながらにして国家元首になることが決められていた男だ、友達など作っている暇などない。[p]
-
-#外交官
-（友達がいないだと！？ではもっと感情的にうったえかけなければ）[p]
+父親？関係ないな[p]
 
 
 
 @jump target=e_common
+
+
+
+
+*select_d2
+
+
+#外交官
+では、愛する父親が戦争に行って殺されたとしたらあなたはなんとも思わないんですか？[p]
+
+#金
+父親？関係ないな[p]
+
+
+
+@jump target=e_common
+
+
+
+*select_d3
+
+
+#外交官
+では、愛する父親が戦争に行って殺されたとしたらあなたはなんとも思わないんですか？[p]
+
+#金
+父親？関係ないな[p]
+
+
+
+@jump target=e_common
+
+
+
+*select_d4
+
+
+#外交官
+では、愛する父親が戦争に行って殺されたとしたらあなたはなんとも思わないんですか？[p]
+
+#金
+父親？関係ないな[p]
+
+
+
+@jump target=e_common
+
+
+
+;--------第5問
+
+
 
 *e_common
 
@@ -456,13 +581,17 @@
 
 [select_show sound=click ]
 
-[s]
+
 
 
 *select_e1
 
 #外交官
-ご決断を！（一か八かにかけるしかない。。）
+本当ですか？ではあなたの父親が亡くなった時はどうだったんですか？
+
+#金
+奴か。。　うーむ。。[p]
+
 
 
 @jump target=f_common
@@ -470,83 +599,89 @@
 *f_common
 
 
+[validate]
+
+
 *select_e2
 
-[stopbgm]
-[playbgm wait=false time=1 storage="missile"]
-[bg_mod storage="misile"]
+#外交官
+本当ですか？ではあなたの父親が亡くなった時はどうだったんですか？
+
 #金
-もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
-
-[chara_hide name=kim_jong_un time=1 wait=false]
+奴か。。　うーむ。。[p]
 
 
-[bg_mod storage="shoot_misile"]
-[quake]
 
-[bg_mod storage="game_over"]
-
-[s]
+@jump target=f_common
 
 *select_e3
 
-[stopbgm]
-[playbgm wait=false time=1 storage="missile"]
-[bg_mod storage="misile"]
+#外交官
+本当ですか？ではあなたの父親が亡くなった時はどうだったんですか？
+
 #金
-もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
-
-[chara_hide name=kim_jong_un time=1 wait=false]
+奴か。。　うーむ。。[p]
 
 
-[bg_mod storage="shoot_misile"]
-[quake]
 
-[bg_mod storage="game_over"]
+@jump target=f_common
 
-[s]
 
 *select_e4
+#外交官
+本当ですか？ではあなたの父親が亡くなった時はどうだったんですか？
 
-[stopbgm]
-[playbgm wait=false time=1 storage="missile"]
-[bg_mod storage="misile"]
 #金
-
-もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
-
-[chara_hide name=kim_jong_un time=1 wait=false]
-
-
-[bg_mod storage="shoot_misile"]
-[quake]
-
-[bg_mod storage="game_over"]
-
-[s]
+奴か。。　うーむ。。[p]
 
 
 
+@jump target=f_common
 
-@jump target=e_common
+
+
+;---------------エンディング
+
+
 
 *f_common
 
+
+[feed]
+[result]
+
+
+*goal
+
 [chara_hide name=kim_jong_un time=1 wait=false]
+[feed]
 
 
 #金君の言っていることに心が動かされた。自分のことが間違っているとは思わないがこれからお互いの国同士が少しでも仲良くやっていくことを切に願うよ。もちろんミサイル発射も中止だ。[p]
 
 [bg_mod storage="game_clear"]
 
-
-
 [s]
+
+
+*gameover
+
+[stopbgm]
+[playbgm wait=false time=1 storage="missile"]
+[bg_mod storage="misile"]
+
+#金
+もうダメだ。遅い。ミサイルは発射させてもらう。せいぜい東京が焼け野原になるのを指をくわえて見ておくんだな[p]
+
+[chara_hide name=kim_jong_un time=1 wait=false]
+
+
+[bg_mod storage="shoot_misile"]
+[quake]
+
+[bg_mod storage="game_over"]
 
 
 @jump scene=new file=wide/title
 
 [s]
-
-
-
