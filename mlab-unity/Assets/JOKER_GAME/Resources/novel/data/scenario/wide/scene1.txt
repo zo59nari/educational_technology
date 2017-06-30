@@ -5,7 +5,7 @@
 ;メッセージ表示
 [showmessage]
 [call file=wide/system target="*system_setting_buttons"]
-[text_new name=_sp_chara_name layer=ui x="-100" y=-70 val="" color="DDFF00" fontsize=16 anchor="MiddleLeft"]
+[text_new name=_sp_chara_name layer=ui x="-80" y=-85 val="" color="DDFF00" fontsize=16 anchor="MiddleLeft"]
 [text_show name="_sp_chara_name"] 
 
 
@@ -15,6 +15,7 @@
 [chara_new name="kim_jong_un" storage="kim" jname="金正恩" scale=1.2 jcolor=FF77FF]
 [chara_new name="diplomatic_a" storage="gaikoukan" jname="外交官" scale=1.2 jcolor=22FFFF]
 [chara_new name="diplomatic_b" storage="hosa" jname="外交官補佐" scale=1.2 jcolor=22FFFF]
+[chara_new name="machi" storage="machi" jname="町" scale=1.2 jcolor=22FFFF]
 
 @reset_tag_default
 
@@ -50,41 +51,43 @@
 
 [playbgm wait=false time=1 storage="danger"]
 
-
-
-[chara_show name="diplomatic_a"]
-[chara_show name="diplomatic_b"]
-
-
-[chara_hide name=diplomatic_a time=1 wait=false]
-[chara_hide name=diplomatic_b time=1 wait=false]
-
 ;---------------序章
 
 
 #ナレーション
+[bg_mod storage="us"]
 ２０xx年、新たに就任したアメリカ大統領？？が打ち出した新政策は北朝鮮の金正恩を怒らせた。[p]
 
 #ナレーション
+[bg_mod storage="kubo"]
 その新制作というのは隣国大韓民国との同盟の強化及びに日本海近郊に空母？？の複数隻配置という戦争を意識せざるを得ない、北朝鮮側を挑発する内容であった。[p]
 
 #ナレーション
+[chara_mod name="kim" face="angry"]
 それに対して金氏は自分と地震が国家元首を務める北朝鮮を侮ったアメリカに対して憤。[p]
 
 #ナレーション
+[bg_mod storage="misile"]
 負けんと言わんばかりに空母？？撤退を期日までに撤退させなければ同盟国である日本の首都東京に新型弾道ミサイル「ニッセイ」を落とすと発表。[p]
 
 #ナレーション
+[bg_mod storage="machi"]
 その発表を聞いた日本は大パニックし、戦争賛成と反対の二次元にとらわれない様々な意見が飛び交う。[p]
 
 #ナレーション
+[bg_mod storage="japan_map"]
 若者にとっては経験のしたことのない、そして高齢者には苦い過去を思い出させる異様な雰囲気が日本中に漂う中、総理大臣？？は対話によってミサイル発射を阻止することを選択。[p]
 
 #ナレーション
+[chara_show name="diplomatic_a"]
+[chara_show name="diplomatic_b"]
+
 必死の交渉と他国の協力によって交渉人を北朝鮮に送ることが許された日本の首相？？は外交官？？と外交官補佐？？の二人を選抜。[p]
 
 #ナレーション
 性格も育ちも全く異なる二人に日本の、そして世界の命運は託された。[p]
+
+[chara_hide name=kim time=1 wait=false]
 
 #外交官
 [chara_mod name="diplomatic_a" face="komaru"]
@@ -207,7 +210,6 @@
 ;---------------クイズ
 ;--------第1問
 
-
 #ナレーション
 
 会談当日。。[p]
@@ -219,13 +221,13 @@
 
 
 #問題
-北朝鮮では裕福な家庭の象徴となっている「7種の神器」と呼ばれる家電がある。以下のうち7種の神器に当てはまるのはどれか？[p]
+1876年 日朝修好条規を結び朝鮮は開国したが、その発端となった事件は何か[p]
 
 
-[select_new text="携帯・スマートフォン" target=*select_a1 ]
-[select_new text="電子レンジ" target=*select_a2 ]
-[select_new text="ミシン" target=*select_a3 ]
-[select_new text="掃除機" target=*select_a4 ]
+[select_new text="江華島事件" target=*select_a1 ]
+[select_new text="日本丸事件" target=*select_a2 ]
+[select_new text="226事件" target=*select_a3 ]
+[select_new text="地下鉄サリン事件" target=*select_a4 ]
 
 
 [select_show sound=click ]
@@ -234,7 +236,7 @@
 
 
 *select_a1
-[gage points="wrong"]
+[gage points="right"]
 #金
 やはり難しい、日本には犠牲になってもらおう。。[p]
 
@@ -242,7 +244,7 @@
 待ってください、、、！[p]
 
 
-@jump target=a_common
+@jump target=b_common
 
 *select_a2
 [gage points="wrong"]
@@ -254,7 +256,7 @@
 待ってください、、、！[p]
 
 
-@jump target=a_common
+@jump target=b_common
 
 
 *select_a3
@@ -267,7 +269,7 @@
 待ってください、、、！[p]
 
 
-@jump target=a_common
+@jump target=b_common
 
 
 *select_a4
@@ -279,17 +281,304 @@
 #外交官
 待ってください、、、！[p]
 
-@jump target=a_common
-
-
-
+@jump target=b_common
 
 ;--------第2問
 
+*b_common
+
+
+[bg_mod storage="chousen_kokki"]
+[chara_show name="kim_jong_un"]
+
+
+#問題
+朝鮮民主主義人民共和国が成立したときの最初の首相は？[p]
+
+
+[select_new text="安倍晋三" target=*select_b1 ]
+[select_new text="金日成" target=*select_b2 ]
+[select_new text="橋下徹" target=*select_b3 ]
+[select_new text="坂本龍馬" target=*select_b4 ]
+
+
+[select_show sound=click ]
+
+[s]
+
+
+*select_b1
+[gage points="wrong"]
+#外交官
+人がたくさん死ぬって怖くはないんですか？[p]
+#金
+日本人だろ？そんなの関係ない。[p]
+#外交官
+このままでは話を聞いてもらえない。感情に訴えかけないと[p]
 
 
 
-*a_common
+@jump target=c_common
+
+*select_b2
+[gage points="right"]
+#外交官
+人がたくさん死ぬって怖くはないんですか？[p]
+#金
+日本人だろ？そんなの関係ない。[p]
+#外交官
+このままでは話を聞いてもらえない。感情に訴えかけないと[p]
+
+
+@jump target=c_common
+
+
+*select_b3
+[gage points="wrong"]
+#外交官
+人がたくさん死ぬって怖くはないんですか？[p]
+#金
+日本人だろ？そんなの関係ない。[p]
+#外交官
+このままでは話を聞いてもらえない。感情に訴えかけないと[p]
+
+
+@jump target=c_common
+
+
+*select_b4
+[gage points="wrong"]
+#外交官
+人がたくさん死ぬって怖くはないんですか？[p]
+#金
+日本人だろ？そんなの関係ない。[p]
+#外交官
+このままでは話を聞いてもらえない。感情に訴えかけないと[p]
+
+@jump target=c_common
+
+;--------第3問
+
+
+*c_common
+
+[bg_mod storage="chousen_kokki"]
+[chara_show name="kim_jong_un"]
+
+
+#問題
+2002年、北朝鮮を訪問し、金正日総書記と初の日朝首脳会談を実現したのは誰か[p]
+
+
+[select_new text="小泉純一郎" target=*select_c1 ]
+[select_new text="安倍晋三" target=*select_c2 ]
+[select_new text="近藤勇" target=*select_c3 ]
+[select_new text="吉田茂" target=*select_c4 ]
+
+
+[select_show sound=click ]
+
+[s]
+
+
+*select_c1
+[gage points="right"]
+#外交官
+自分のところの国民が殺されるって考えてみたら苦しくないですか？[p]
+#金
+そんなことはない、国民はただの駒だからね[p]
+（もっと感情の芯の部分に訴えかけないと、、）[p]
+
+
+
+@jump target=d_common
+
+*select_c2
+[gage points="wrong"]
+#外交官
+自分のところの国民が殺されるって考えてみたら苦しくないですか？[p]
+#金
+そんなことはない、国民はただの駒だからね[p]
+（もっと感情の芯の部分に訴えかけないと、、）[p]
+
+
+@jump target=d_common
+
+
+*select_c3
+[gage points="wrong"]
+#外交官
+自分のところの国民が殺されるって考えてみたら苦しくないですか？[p]
+#金
+そんなことはない、国民はただの駒だからね[p]
+（もっと感情の芯の部分に訴えかけないと、、）[p]
+
+
+@jump target=d_common
+
+
+*select_c4
+[gage points="wrong"]
+#外交官
+自分のところの国民が殺されるって考えてみたら苦しくないですか？[p]
+#金
+そんなことはない、国民はただの駒だからね[p]
+（もっと感情の芯の部分に訴えかけないと、、）[p]
+
+
+@jump target=d_common
+
+
+;--------第4問
+
+
+*d_common
+
+[bg_mod storage="chousen_kokki"]
+[chara_show name="kim_jong_un"]
+
+
+#問題
+多くの反政府的な立場をとる韓国人が密入国した朝鮮戦争はいつ起きたか？[p]
+
+
+[select_new text="1950" target=*select_d1 ]
+[select_new text="1940" target=*select_d2 ]
+[select_new text="1960" target=*select_d3 ]
+[select_new text="1970" target=*select_d4 ]
+
+
+[select_show sound=click ]
+
+[s]
+
+
+*select_d1
+[gage points="right"]
+#外交官
+愛する家族が戦争で殺されたら悲しくありませんか？[p]
+#金
+私は兄を殺した人間だ、そのくらい君だって知っているだろう？[p]
+（うーん家族愛ではダメか、、ならあの手しかない！)[p]
+
+
+
+@jump target=e_common
+
+*select_d2
+[gage points="wrong"]
+#外交官
+愛する家族が戦争で殺されたら悲しくありませんか？[p]
+#金
+私は兄を殺した人間だ、そのくらい君だって知っているだろう？[p]
+（うーん家族愛ではダメか、、ならあの手しかない！)[p]
+
+
+@jump target=e_common
+
+
+*select_d3
+[gage points="wrong"]
+#外交官
+愛する家族が戦争で殺されたら悲しくありませんか？[p]
+#金
+私は兄を殺した人間だ、そのくらい君だって知っているだろう？[p]
+（うーん家族愛ではダメか、、ならあの手しかない！)[p]
+
+
+@jump target=e_common
+
+
+*select_d4
+[gage points="wrong"]
+#外交官
+愛する家族が戦争で殺されたら悲しくありませんか？[p]
+#金
+私は兄を殺した人間だ、そのくらい君だって知っているだろう？[p]
+（うーん家族愛ではダメか、、ならあの手しかない！)[p]
+
+@jump target=e_common
+;--------第5問
+
+
+*e_common
+
+[bg_mod storage="chousen_kokki"]
+[chara_show name="kim_jong_un"]
+
+
+#問題
+1965年、財産及び請求権に関する問題の解決並びに経済協力に関する日本国と大韓民国との間の協定が締結されたがその協定の名称はなにか[p]
+
+
+[select_new text="日米安全保障条約" target=*select_e1 ]
+[select_new text="ポーツマス講和条約" target=*select_e2 ]
+[select_new text="日英同盟" target=*select_e3 ]
+[select_new text="日韓基本条約" target=*select_e4 ]
+
+
+[select_show sound=click ]
+
+[s]
+
+
+*select_e1
+[gage points="wrong"]
+#金
+やはり難しい、日本には犠牲になってもらおう。。[p]
+
+#外交官
+待ってください、、、！[p]
+
+
+@jump target=f_common
+
+*select_e2
+[gage points="wrong"]
+
+#金
+やはり難しい、日本には犠牲になってもらおう。。[p]
+
+#外交官
+待ってください、、、！[p]
+
+
+@jump target=f_common
+
+
+*select_e3
+[gage points="wrong"]
+
+#金
+やはり難しい、日本には犠牲になってもらおう。。[p]
+
+#外交官
+待ってください、、、！[p]
+
+
+@jump target=f_common
+
+
+*select_e4
+[gage points="right"]
+
+#金
+やはり難しい、日本には犠牲になってもらおう。。[p]
+
+#外交官
+待ってください、、、！[p]
+
+@jump target=f_common
+
+
+
+
+;--------第6問
+
+
+
+
+*f_common
 
 [chara_show name="kim_jong_un" ]
 
@@ -302,17 +591,17 @@
 しかし、どの国も拉致被害者の正確な人数は未だ把握することができていないのはなぜか？（当てはまらないものを選べ）[p]
 
 
-[select_new text="亡命者と拉致被害者の区別がつかないから" target=*select_b1 ]
-[select_new text="早期の段階で死んだと発表されてしまうことが多いから。" target=*select_b2 ]
-[select_new text="拉致被害を訴える国が北朝鮮の核開発に反発的な態度を取っているため、北朝鮮は報復として拉致を認めないから" target=*select_b3 ]
-[select_new text="拉致後の被害者の行動を追跡することが困難だから" target=*select_b4 ]
+[select_new text="亡命者と拉致被害者の区別がつかないから" target=*select_g1 ]
+[select_new text="早期の段階で死んだと発表されてしまうことが多いから。" target=*select_g2 ]
+[select_new text="拉致被害を訴える国が北朝鮮の核開発に反発的な態度を取っているため、北朝鮮は報復として拉致を認めないから" target=*select_g3 ]
+[select_new text="拉致後の被害者の行動を追跡することが困難だから" target=*select_g4 ]
 
 
 [select_show sound=click ]
 
 
 
-*select_b1
+*select_g1
 [gage points="wrong"]
 
 #外交官
@@ -326,10 +615,10 @@
 
 
 
-@jump target=c_common
+@jump target=h_common
 
 
-*select_b2
+*select_g2
 [gage points="wrong"]
 
 #外交官
@@ -343,9 +632,9 @@
 
 
 
-@jump target=c_common
+@jump target=h_common
 
-*select_b3
+*select_g3
 [gage points="wrong"]
 
 #外交官
@@ -359,9 +648,9 @@
 
 
 
-@jump target=c_common
+@jump target=h_common
 
-*select_b4
+*select_g4
 [gage points="right"]
 
 #外交官
@@ -373,13 +662,13 @@
 #外交官
 （このままでは話を聞いてもらえない。感情に訴えかけないと。。）
 
-@jump target=c_common
+@jump target=h_common
 
 
-;---------------第3問
+;---------------第7問
 
 
-*c_common
+*h_common
 
 [chara_show name="kim_jong_un" ]
 
@@ -392,10 +681,10 @@
 近年北朝鮮を脱出する人（＝脱北者）が増えており、2016年には韓国入りした脱北者は暫定集計1417人（前年比約11%増）にのぼった。では、脱北者はその後どういった生活を送っているのか？[p]
 
 
-[select_new text="他国に北朝鮮の内部の情報を伝える重要な人物として国家からの支援を受けることができる。" target=*select_c1 ]
-[select_new text="脱北先での生活になじむことができず、まともな仕事に就けなかったり犯罪を犯してしまう人が多い。" target=*select_c2 ]
-[select_new text="北朝鮮では核兵器に関する科学的な教育を受けている人が多く、脱北先でも核兵器の開発や迎撃システムの開発に従事する人が多い。" target=*select_c3 ]
-[select_new text="北朝鮮の工作員が主な脱北先にはおり、脱北者だとわかると大体の人が工作員によって秘密裏に殺害されてしまう。" target=*select_c4 ]
+[select_new text="他国に北朝鮮の内部の情報を伝える重要な人物として国家からの支援を受けることができる。" target=*select_h1 ]
+[select_new text="脱北先での生活になじむことができず、まともな仕事に就けなかったり犯罪を犯してしまう人が多い。" target=*select_h2 ]
+[select_new text="北朝鮮では核兵器に関する科学的な教育を受けている人が多く、脱北先でも核兵器の開発や迎撃システムの開発に従事する人が多い。" target=*select_h3 ]
+[select_new text="北朝鮮の工作員が主な脱北先にはおり、脱北者だとわかると大体の人が工作員によって秘密裏に殺害されてしまう。" target=*select_h4 ]
 
 
 [select_show sound=click ]
@@ -403,7 +692,7 @@
 
 
 
-*select_c1
+*select_h1
 [gage points="wrong"]
 
 
@@ -418,26 +707,10 @@
 
 
 
-@jump target=d_common
+@jump target=i_common
 
 
-*select_c2
-
-
-#外交官
-愛する家族が戦争で殺されたら悲しくありませんか？[p]
-
-#金
-私は兄を殺した人間だ、そのくらい君だって知っているだろう？[p]
-
-#外交官
-（家族愛ではだめだ、、あの手しかないか、、）[p]
-
-
-
-@jump target=d_common
-
-*select_c3
+*select_h2
 
 
 #外交官
@@ -451,9 +724,9 @@
 
 
 
-@jump target=d_common
+@jump target=i_common
 
-*select_c4
+*select_h3
 
 
 #外交官
@@ -467,13 +740,29 @@
 
 
 
-@jump target=d_common
+@jump target=i_common
+
+*select_h4
 
 
-;--------第4問
+#外交官
+愛する家族が戦争で殺されたら悲しくありませんか？[p]
+
+#金
+私は兄を殺した人間だ、そのくらい君だって知っているだろう？[p]
+
+#外交官
+（家族愛ではだめだ、、あの手しかないか、、）[p]
 
 
-*d_common
+
+@jump target=i_common
+
+
+;--------第8問
+
+
+*i_common
 
 [chara_show name="kim_jong_un" ]
 
@@ -486,10 +775,10 @@
 現在では北から南への脱北者が増えているが、昔は南から北への越北者も多数いた。では越北者が増え始めたのはいつ頃からか？[p]
 
 
-[select_new text="1945年ごろ（太平洋戦争にソ連参戦)" target=*select_d1 ]
-[select_new text="1948年ごろ（大韓民国、朝鮮民主主義人民共和国建国）" target=*select_d2 ]
-[select_new text="1948年ごろ（大韓民国、朝鮮民主主義人民共和国建国）" target=*select_d3 ]
-[select_new text="1948年ごろ（大韓民国、朝鮮民主主義人民共和国建国）" target=*select_d4 ]
+[select_new text="1945年ごろ（太平洋戦争にソ連参戦)" target=*select_i1 ]
+[select_new text="1948年ごろ（大韓民国、朝鮮民主主義人民共和国建国）" target=*select_i2 ]
+[select_new text="1948年ごろ（大韓民国、朝鮮民主主義人民共和国建国）" target=*select_i3 ]
+[select_new text="1948年ごろ（大韓民国、朝鮮民主主義人民共和国建国）" target=*select_i4 ]
 
 
 [select_show sound=click ]
@@ -497,7 +786,7 @@
 
 
 
-*select_d1
+*select_i1
 
 
 #外交官
@@ -508,27 +797,12 @@
 
 
 
-@jump target=e_common
+@jump target=j_common
 
 
 
 
-*select_d2
-
-
-#外交官
-では、愛する父親が戦争に行って殺されたとしたらあなたはなんとも思わないんですか？[p]
-
-#金
-父親？関係ないな[p]
-
-
-
-@jump target=e_common
-
-
-
-*select_d3
+*select_i2
 
 
 #外交官
@@ -539,11 +813,11 @@
 
 
 
-@jump target=e_common
+@jump target=j_common
 
 
 
-*select_d4
+*select_i3
 
 
 #外交官
@@ -554,15 +828,30 @@
 
 
 
-@jump target=e_common
+@jump target=j_common
 
 
 
-;--------第5問
+*select_i4
+
+
+#外交官
+では、愛する父親が戦争に行って殺されたとしたらあなたはなんとも思わないんですか？[p]
+
+#金
+父親？関係ないな[p]
 
 
 
-*e_common
+@jump target=j_common
+
+
+
+;--------第9問
+
+
+
+*j_common
 
 [chara_show name="kim_jong_un" ]
 
@@ -573,10 +862,10 @@
 北朝鮮はこれまで何度も核実験を繰り返している。国際的に批判が強まる中で北朝鮮は、どのように資金を集めて核実験を行っているのか？[p]
 
 
-[select_new text="対中国の対外貿易で、石炭や鉄鉱石を得ることで外貨を得ている。" target=*select_e1 ]
-[select_new text="冷戦時の資本主義国に対し賠償金を請求し、核開発に当てている。" target=*select_e2 ]
-[select_new text="冷戦時の資本主義国に対し賠償金を請求し、核開発に当てている。" target=*select_e3 ]
-[select_new text="自動車や鉄道などミサイルの材料、燃料となりうるものを国策として市民から徴収して核開発に当てている。" target=*select_e4 ]
+[select_new text="対中国の対外貿易で、石炭や鉄鉱石を得ることで外貨を得ている。" target=*select_j1 ]
+[select_new text="冷戦時の資本主義国に対し賠償金を請求し、核開発に当てている。" target=*select_j2 ]
+[select_new text="冷戦時の資本主義国に対し賠償金を請求し、核開発に当てている。" target=*select_j3 ]
+[select_new text="自動車や鉄道などミサイルの材料、燃料となりうるものを国策として市民から徴収して核開発に当てている。" target=*select_j4 ]
 
 
 [select_show sound=click ]
@@ -584,7 +873,7 @@
 
 
 
-*select_e1
+*select_j1
 
 #外交官
 本当ですか？ではあなたの父親が亡くなった時はどうだったんですか？
@@ -594,15 +883,9 @@
 
 
 
-@jump target=f_common
+@jump target=k_common
 
-*f_common
-
-
-[validate]
-
-
-*select_e2
+*select_j2
 
 #外交官
 本当ですか？ではあなたの父親が亡くなった時はどうだったんですか？
@@ -612,9 +895,9 @@
 
 
 
-@jump target=f_common
+@jump target=k_common
 
-*select_e3
+*select_j3
 
 #外交官
 本当ですか？ではあなたの父親が亡くなった時はどうだったんですか？
@@ -624,19 +907,18 @@
 
 
 
-@jump target=f_common
+@jump target=k_common
 
 
-*select_e4
+*select_j4
 #外交官
 本当ですか？ではあなたの父親が亡くなった時はどうだったんですか？
 
 #金
 奴か。。　うーむ。。[p]
 
+@jump target=k_common
 
-
-@jump target=f_common
 
 
 
@@ -644,7 +926,7 @@
 
 
 
-*f_common
+*k_common
 
 
 [feed]

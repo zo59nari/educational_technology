@@ -48,7 +48,7 @@ public class GageValidate:MonoBehaviour{
 
 		_vp = PlayerPrefs.GetFloat ("vp");
 
-		if (_vp >= 0.08f) {
+		if (_vp >= 0.8) {
 			result = true;
 		} else {
 			result = false;
