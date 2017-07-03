@@ -293,7 +293,7 @@
 
 
 #問題
-朝鮮民主主義人民共和国が成立したときの最初の首相は？[p]
+朝鮮民主主義人民共和国が成立したときの最初の国家元首は？[p]
 
 
 [select_new text="安倍晋三" target=*select_b1 ]
@@ -611,7 +611,7 @@
 死ぬのは日本人だ。敵を殺すのに怖いことなどあるものか。[p]
 
 #外交官
-（このままでは話を聞いてもらえない。感情に訴えかけないと。。）
+（このままでは話を聞いてもらえない。感情に訴えかけないと。。）[p]
 
 
 
@@ -628,29 +628,13 @@
 死ぬのは日本人だ。敵を殺すのに怖いことなどあるものか。[p]
 
 #外交官
-（このままでは話を聞いてもらえない。感情に訴えかけないと。。）
+（このままでは話を聞いてもらえない。感情に訴えかけないと。。）[p]
 
 
 
 @jump target=h_common
 
 *select_g3
-[gage points="wrong"]
-
-#外交官
-人がたくさん死ぬって怖くはないんですか？
-
-#金
-死ぬのは日本人だ。敵を殺すのに怖いことなどあるものか。[p]
-
-#外交官
-（このままでは話を聞いてもらえない。感情に訴えかけないと。。）
-
-
-
-@jump target=h_common
-
-*select_g4
 [gage points="right"]
 
 #外交官
@@ -660,7 +644,23 @@
 死ぬのは日本人だ。敵を殺すのに怖いことなどあるものか。[p]
 
 #外交官
-（このままでは話を聞いてもらえない。感情に訴えかけないと。。）
+（このままでは話を聞いてもらえない。感情に訴えかけないと。。）[p]
+
+
+
+@jump target=h_common
+
+*select_g4
+[gage points="wrong"]
+
+#外交官
+人がたくさん死ぬって怖くはないんですか？
+
+#金
+死ぬのは日本人だ。敵を殺すのに怖いことなどあるものか。[p]
+
+#外交官
+（このままでは話を聞いてもらえない。感情に訴えかけないと。。）[p]
 
 @jump target=h_common
 
@@ -693,7 +693,7 @@
 
 
 *select_h1
-[gage points="wrong"]
+[gage points="right"]
 
 
 #外交官
@@ -711,6 +711,7 @@
 
 
 *select_h2
+[gage points="wrong"]
 
 
 #外交官
@@ -727,6 +728,7 @@
 @jump target=i_common
 
 *select_h3
+[gage points="wrong"]
 
 
 #外交官
@@ -743,6 +745,7 @@
 @jump target=i_common
 
 *select_h4
+[gage points="wrong"]
 
 
 #外交官
@@ -772,13 +775,13 @@
 
 
 #問題
-現在では北から南への脱北者が増えているが、昔は南から北への越北者も多数いた。では越北者が増え始めたのはいつ頃からか？[p]
+1961年に韓国の朴正煕の軍事クーデターを起こして反響軍事政権を樹立した事に危惧をした北朝鮮はロシアとソ朝友好協力相互援助条約を結んだが、その時のソ連の指導者は誰か？[p]
 
 
-[select_new text="1945年ごろ（太平洋戦争にソ連参戦)" target=*select_i1 ]
-[select_new text="1948年ごろ（大韓民国、朝鮮民主主義人民共和国建国）" target=*select_i2 ]
-[select_new text="1948年ごろ（大韓民国、朝鮮民主主義人民共和国建国）" target=*select_i3 ]
-[select_new text="1948年ごろ（大韓民国、朝鮮民主主義人民共和国建国）" target=*select_i4 ]
+[select_new text="アンドロポフ" target=*select_i1 ]
+[select_new text="ブレジネフ" target=*select_i2 ]
+[select_new text="フルシチョフ" target=*select_i3 ]
+[select_new text="シェフチェンコ" target=*select_i4 ]
 
 
 [select_show sound=click ]
@@ -787,6 +790,7 @@
 
 
 *select_i1
+[gage points="wrong"]
 
 
 #外交官
@@ -803,6 +807,7 @@
 
 
 *select_i2
+[gage points="wrong"]
 
 
 #外交官
@@ -818,6 +823,7 @@
 
 
 *select_i3
+[gage points="right"]
 
 
 #外交官
@@ -833,6 +839,7 @@
 
 
 *select_i4
+[gage points="wrong"]
 
 
 #外交官
@@ -844,8 +851,6 @@
 
 
 @jump target=j_common
-
-
 
 ;--------第9問
 
@@ -864,7 +869,7 @@
 
 [select_new text="対中国の対外貿易で、石炭や鉄鉱石を得ることで外貨を得ている。" target=*select_j1 ]
 [select_new text="冷戦時の資本主義国に対し賠償金を請求し、核開発に当てている。" target=*select_j2 ]
-[select_new text="冷戦時の資本主義国に対し賠償金を請求し、核開発に当てている。" target=*select_j3 ]
+[select_new text="特産品であるトウモロコシなどの農業作物を周辺国に輸出し外貨を得ている。" target=*select_j3 ]
 [select_new text="自動車や鉄道などミサイルの材料、燃料となりうるものを国策として市民から徴収して核開発に当てている。" target=*select_j4 ]
 
 
@@ -874,6 +879,7 @@
 
 
 *select_j1
+[gage points="right"]
 
 #外交官
 本当ですか？ではあなたの父親が亡くなった時はどうだったんですか？
@@ -886,6 +892,7 @@
 @jump target=k_common
 
 *select_j2
+[gage points="wrong"]
 
 #外交官
 本当ですか？ではあなたの父親が亡くなった時はどうだったんですか？
@@ -898,6 +905,7 @@
 @jump target=k_common
 
 *select_j3
+[gage points="wrong"]
 
 #外交官
 本当ですか？ではあなたの父親が亡くなった時はどうだったんですか？
@@ -911,6 +919,8 @@
 
 
 *select_j4
+[gage points="wrong"]
+
 #外交官
 本当ですか？ではあなたの父親が亡くなった時はどうだったんですか？
 
@@ -939,11 +949,15 @@
 [feed]
 
 
-#金君の言っていることに心が動かされた。自分のことが間違っているとは思わないがこれからお互いの国同士が少しでも仲良くやっていくことを切に願うよ。もちろんミサイル発射も中止だ。[p]
+#金
+君の言っていることに心が動かされた。自分のことが間違っているとは思わないがこれからお互いの国同士が少しでも仲良くやっていくことを切に願うよ。もちろんミサイル発射も中止だ。[p]
 
 [bg_mod storage="game_clear"]
 
+@jump scene=new file=wide/title
+
 [s]
+
 
 
 *gameover

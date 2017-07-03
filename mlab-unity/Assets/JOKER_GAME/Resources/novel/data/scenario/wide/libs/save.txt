@@ -4,7 +4,7 @@
 
 ;セーブ画面
 
-[bg_new name="background" layer="background" storage="savebg"]
+[bg_new name="background" layer="background" storage="japan_map"]
 [bg_show name="background" ]
 
 @image_new storage="close" layer=ui name="button_close_save" x=5.2 y=4.0 scale=1.5

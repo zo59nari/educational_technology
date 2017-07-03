@@ -30,9 +30,6 @@ n = 1, 2, 3
 		  	public override void start ()
 		  	{
 
-			   	//変数に結果を格納
-				//GageObject.SwitchPoints(chosenNumber);
-
 				GageValidate.SaveVP ();
 
 
@@ -114,123 +111,75 @@ scene=new を指定すると、新しくシーンを作成した上でジャン�
 			}
 
 
+		public void switchScene(string enteredText){
+
+			this.param ["target"] = enteredText;
+
+			string target = this.param ["target"].Replace ("*", "").Trim();
+			string file = this.param ["file"];
+
+			if (file == "") {
+				file = StatusManager.currentScenario;
+			}
+
+			//ファイルが異なるものになる場合、シナリオをロードする
+
+			if (StatusManager.currentScenario != file) {
+				this.gameManager.loadScenario (file);
+			}
+
+
+			int index = -1;
+
+			//index直指定の場合はそれに従う
+			if (this.param ["index"] != "") {
+
+				index = int.Parse(this.param ["index"]);
+
+			} else {
+
+				index = this.gameManager.scenarioManager.getIndex (file, target);
+
+			}
+
+			//mp変数の中身を書き換える resultのpmの内容で
+			//NovelSingleton.GameManager.statusManager.variable.replaceAll("mp",this.param);;
+
+			//ゲームマネージャーの現在の位置をそこに書き換えてnextOrderでどうだ。
+			this.gameManager.CurrentComponentIndex = index;
+			StatusManager.currentScenario = file;
+
+			//シーンをクリアして作りなおす
+			if (this.param ["scene"] == "new") {
+
+				//new の場合はスタックをすべて削除する
+				this.gameManager.scenarioManager.removeAllStacks ();
+
+				StatusManager.nextFileName = file;
+				StatusManager.nextTargetName = target;
+				StatusManager.currentScenario = "";
+				//resultから来たことを通知するためのパラメータが必要
+				Application.LoadLevel("Player");
+
+			}
+
+			if (this.param ["next"] == "false") {
+
+			} else {
+				this.gameManager.nextOrder ();
+			}	
+		}
+
+		//8割超えてるか否かでゴールかゲームオーバーか判定
 		  	public override void start ()
 		  	{
 
 			if (GageValidate.GetVPAndResult ()) {
-
-					this.param ["target"] = "goal";
-
-					string target = this.param ["target"].Replace ("*", "").Trim();
-					string file = this.param ["file"];
-		
-					if (file == "") {
-						file = StatusManager.currentScenario;
-					}
-		
-					//ファイルが異なるものになる場合、シナリオをロードする
-		
-					if (StatusManager.currentScenario != file) {
-						this.gameManager.loadScenario (file);
-					}
-		
-		
-					int index = -1;
-		
-					//index直指定の場合はそれに従う
-					if (this.param ["index"] != "") {
-					
-						index = int.Parse(this.param ["index"]);
-					
-					} else {
-		
-						index = this.gameManager.scenarioManager.getIndex (file, target);
-							
-					}
-		
-					//mp変数の中身を書き換える resultのpmの内容で
-					//NovelSingleton.GameManager.statusManager.variable.replaceAll("mp",this.param);;
-		
-					//ゲームマネージャーの現在の位置をそこに書き換えてnextOrderでどうだ。
-					this.gameManager.CurrentComponentIndex = index;
-					StatusManager.currentScenario = file;
-		
-					//シーンをクリアして作りなおす
-					if (this.param ["scene"] == "new") {
-		
-						//new の場合はスタックをすべて削除する
-						this.gameManager.scenarioManager.removeAllStacks ();
-		
-						StatusManager.nextFileName = file;
-						StatusManager.nextTargetName = target;
-						StatusManager.currentScenario = "";
-						//resultから来たことを通知するためのパラメータが必要
-						Application.LoadLevel("Player");
-		
-					}
-		
-					if (this.param ["next"] == "false") {
-					
-					} else {
-						this.gameManager.nextOrder ();
-					}				
+					string target = "goal";
+					this.switchScene (target);
 				} else {
-
-					this.param ["target"] = "gameover";
-
-					string target = this.param ["target"].Replace ("*", "").Trim();
-					string file = this.param ["file"];
-		
-					if (file == "") {
-						file = StatusManager.currentScenario;
-					}
-		
-					//ファイルが異なるものになる場合、シナリオをロードする
-		
-					if (StatusManager.currentScenario != file) {
-						this.gameManager.loadScenario (file);
-					}
-		
-		
-					int index = -1;
-		
-					//index直指定の場合はそれに従う
-					if (this.param ["index"] != "") {
-					
-						index = int.Parse(this.param ["index"]);
-					
-					} else {
-		
-						index = this.gameManager.scenarioManager.getIndex (file, target);
-							
-					}
-		
-					//mp変数の中身を書き換える resultのpmの内容で
-					//NovelSingleton.GameManager.statusManager.variable.replaceAll("mp",this.param);;
-		
-					//ゲームマネージャーの現在の位置をそこに書き換えてnextOrderでどうだ。
-					this.gameManager.CurrentComponentIndex = index;
-					StatusManager.currentScenario = file;
-		
-					//シーンをクリアして作りなおす
-					if (this.param ["scene"] == "new") {
-		
-						//new の場合はスタックをすべて削除する
-						this.gameManager.scenarioManager.removeAllStacks ();
-		
-						StatusManager.nextFileName = file;
-						StatusManager.nextTargetName = target;
-						StatusManager.currentScenario = "";
-						//resultから来たことを通知するためのパラメータが必要
-						Application.LoadLevel("Player");
-		
-					}
-		
-					if (this.param ["next"] == "false") {
-					
-					} else {
-						this.gameManager.nextOrder ();
-					}
+					string target = "gameover";
+					this.switchScene (target);
 				}	
 
 			}
