@@ -27,17 +27,6 @@ public class GageValidate:MonoBehaviour{
 
 		PlayerPrefs.SetFloat("vp", _validationPoints);
 
-		//Debug.Log (PlayerPrefs.GetFloat ("vp"));
-
-
-//		if (_slider.value >= 0.8f) {
-//			goal = true;
-//		} else {
-//			goal = false;
-//		}
-//
-//		return goal;
-
 	}
 
 	public static bool GetVPAndResult(){
